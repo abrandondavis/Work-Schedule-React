@@ -1,5 +1,32 @@
+:root {
+  --background: #eee;
+}
+
+html {
+  background-color: var(--background);
+  background-size: 100%;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:visited {
+  text-decoration: none !important;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.printer-icon {
+  font-size: 20px;
+}
+
+
 .App {
   text-align: center;
+  background-color: var(--background);
 }
 
 .App-logo {
@@ -34,5 +61,20 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .navbar {
+    display: none !important;
+  }
+
+  body {
+    height: initial !important;
+    overflow: initial !important; 
   }
 }

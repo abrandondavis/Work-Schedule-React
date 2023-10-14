@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
+
+//  Navigation Imports
+import Navigation from './components/NavBar.js';
+import {
+  BrowserRouter,
+  Routes, Route, useNavigate
+} from 'react-router-dom';
+
+// Hook Imports
+
+// Component Imports
+import Home from './components/Home';
+import Login from './components/login/Login';
+import ScheduleList from './components/schedule/ScheduleList';
+import PrintableVersion from './components/schedule/PrintableVersion';
+import Contact from './components/Contact';
 
 function App() {
+
+  const GoToPrintableVersion = () => {
+    useNavigate('/printableVersion')
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+
+      <BrowserRouter>
+        <Routes>
+          <Route index exact path='/' element={<Home />} />
+          <Route path='/scheduleList' element={<ScheduleList />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/printableVersion' element={<PrintableVersion />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
