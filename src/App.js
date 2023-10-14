@@ -19,9 +19,6 @@ import Contact from './components/Contact';
 
 function App() {
 
-  const GoToPrintableVersion = () => {
-    useNavigate('/printableVersion')
-  };
 
   return (
     <div className="App">
